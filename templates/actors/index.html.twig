@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actors List{% endblock %}
+
+{% block body %}
+    <div class="container mx-auto mt-24 p-6 bg-white shadow-lg rounded-lg">
+        <h1 class="text-2xl font-bold text-gray-700 mb-6">Actors List ({{ actors|length }})</h1>
+        {% if (app.user) %}
+        <a href="{{ path('actor_create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            + Create Actor
+        </a>
+        {% endif %}
+        <table class="table-auto w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border px-4 py-2">ID</th>
+                    <th class="border px-4 py-2">Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for actor in actors %}
+                    <tr class="bg-gray-100">
+                        <td class="border px-4 py-2">{{ actor.id }}</td>
+                        <td class="border px-4 py-2">{{ actor.name }}</td>
+                        <td class="border px-4 py-2 text-center"><a class="bg-blue-500 text-white rounded-lg px-8 py-1" href="/actors/edit/{{ actor.id }}">Edit</a></td>
+                        <td class="border px-4 py-2 text-center"><a class="bg-red-500 text-white rounded-lg px-8 py-1" href="/actors/delete/{{ actor.id }}">Delete</a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="2" class="text-center text-gray-500 py-4">No actors found.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

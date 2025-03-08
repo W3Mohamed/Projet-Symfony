@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add New Actor{% endblock %}
+
+{% block body %}
+    <div class="flex justify-center items-center min-h-screen bg-gray-100">
+        <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-2xl font-semibold text-center mb-6 text-gray-800">Create Actor</h1>
+
+            {{ form_start(form, {'attr': {'class': 'space-y-4'}}) }}
+                {{ form_widget(form) }}
+                
+                <button type="submit" class="w-full px-4 py-2 bg-indigo-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300">
+                    Create Actor
+                </button>
+            {{ form_end(form) }}
+
+            <div class="text-center mt-4">
+                <a href="{{ path('app_actors') }}" class="text-indigo-600 hover:underline font-medium">← Back to List</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

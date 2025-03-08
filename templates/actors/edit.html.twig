@@ -1,0 +1,21 @@
+{% extends "./base.html.twig" %}
+
+{% block body %}
+<div class="w-4/5 m-auto pt-40">
+    <h1 class="text-6xl text-center pb-12">
+        Edit Acotr
+    </h1>
+
+    {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+        
+        <button    
+            type="submit"
+            class="w-full px-4 py-2 bg-indigo-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300">
+            Edit
+        </button>
+
+    {{ form_end(form) }}
+</div>
+{% endblock %}
