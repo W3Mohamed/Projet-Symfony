@@ -130,6 +130,8 @@ class MoviesController extends AbstractController
 
         $this->em->persist($movie);
         $this->em->flush();
+
+        return new Response('Movie created successfully', Response::HTTP_CREATED);
     }
    
     #[Route('/movies/edit/{id}', name:'edit_movie')]
